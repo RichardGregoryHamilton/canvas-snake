@@ -7,8 +7,26 @@ h1 {
   margin-bottom: 2%;
 }
 
+table {
+  width: 70%;
+  margin: 5% auto;
+}
+
+tr {
+  border: 3px solid black;
+}
+
+td {
+  padding: 20px 15px;
+}
+
 canvas {
   border: 1px solid black;
+}
+
+#game-info {
+  width: 300px;
+  margin: 2% auto;
 }
 
 #game-block {
@@ -18,7 +36,7 @@ canvas {
 
 #options {
   margin: 2% auto;
-  width: 30%;
+  width: 33%;
 }
 
 #scores-table {
@@ -27,6 +45,27 @@ canvas {
   background: orange;
 }
 
-td {
-  padding: 3%;
+#level {
+  white-space: nowrap;
+}
+
+#score, #high-score {
+  margin-left: 10%;
+  font-weight: bold;
+}
+
+/* Achievements */
+
+.achievement-img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.locked {
+  background: #888888;
+}
+
+.unlocked {
+  background: #FFCC00;
 }

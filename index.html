@@ -1,25 +1,31 @@
 <head>
-	<title>Snake Game</title>
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link rel='stylesheet' href='styles.css'></link>
+  <title>Snake Game</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel='stylesheet' href='styles.css'></link>
 </head>
 
 <body>
-	<h1>Snake Online</h1>
-	
-	<p id='score'></p>
+  <h1>Snake Online</h1>
+  
+  <div id='game-info'>
+      <p id='level'>
+        <span id='score'></span>
+        <span id='high-score'></span>
+      </p>
+    </div>
 
-	<div id="game-block">
-		<canvas id='my-canvas' width='460' height='460'></canvas>
-	</div>
-	
-	<div id='options'>
-		<button id='new-game' class='btn btn-primary'>New Game</button>
-		<a id='help' class='btn btn-warning' href='help.html'>How To Play</a>
-		<a id='high-scores' class='btn btn-success' href='scores.html'>High Scores</a>
-	</div>
-	
-	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script src='snake.js'></script>
+  <div id="game-block">
+    <canvas id='my-canvas' width='460' height='460'></canvas>
+  </div>
+  
+  <div id='options'>
+    <button id='new-game' class='btn btn-primary'>New Game</button>
+    <a id='help' class='btn btn-warning' href='help.html'>How To Play</a>
+    <a id='high-scores' class='btn btn-success' href='scores.html'>High Scores</a>
+		<a id='achievements' class='btn btn-danger' href='achievements.html'>Achievements</a>
+  </div>
+  
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src='snake.js'></script>
 </body>
