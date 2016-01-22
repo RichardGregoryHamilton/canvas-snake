@@ -1,5 +1,7 @@
 /* This JavaScript file is for dealing with scores */
 
+$('#my-header').load('header.html');
+
 var scores = [];
 var gameScore = 0;
 var level = 1;
@@ -23,11 +25,11 @@ function highScore() {
 
 function incrementScore() {
     if (!gameOver) {
-        if (apple["x"] == snake[0].x && apple["y"] == snake[0].y) {
+        if (apple['x'] == snake[0].x && apple['y'] == snake[0].y) {
             gameScore ++;
             incrementLevel();
             generateApples();
-            drawApple(apple["x"],apple["y"]);
+            drawApple(apple['x'],apple['y']);
             showGameStats();
             snake.push({ x: snake.length, y: 0 });
 
@@ -48,6 +50,10 @@ function addScore() {
 }
 
 // Fill in the High Scores table
-$('#scores-table td:last-child').each(function(index) {
-    $(this).html(sorted[index] || '');
+$('#scores-table tr:not(:first-child)').each(function(index) {
+	var score = sorted[index];
+	var level = Math.floor(score / 10) + 1;
+	$(this).find('td:eq(1)').html(score || '');
+	$(this).find('td:eq(2)').html(level || '');
+    //$(this).html(sorted[index] || '');
 });
