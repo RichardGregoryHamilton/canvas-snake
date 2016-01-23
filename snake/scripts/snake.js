@@ -64,7 +64,6 @@ $('body').on('keydown', function(event) {
 });
 
 function startGame() {
-    $('#game-info').css({ 'visibility': 'visible' });
     showGameStats();
     direction = 'right';
     gameOver = false;
@@ -138,7 +137,7 @@ function calculateCollision() {
     });
 }
 
-function endGame() {
+function checkLoss() {
 
     if (newX == -1 || newX == 50 || newY == -1 || newY == 25 || calculateCollision()) {
         gameOver = true;
@@ -149,6 +148,7 @@ function endGame() {
     }
 }
 
+// This updates and draws the position of the snake
 function updateBoard() {
     for (var i = 0; i < snake.length; i++) {
         var cell = snake[i];
@@ -160,10 +160,9 @@ function updateBoard() {
 
 // Our main function that will be constantly repeated
 function draw() {
-    ctx.fillStyle = 'white';
-    ctx.fillRect(0, 0, width, height);
+    ctx.clearRect(0, 0, width, height);
     moveSnake();
-    endGame();
+    checkLoss();
     updateBoard();
     drawApple(apple['x'], apple['y']);
 }

@@ -13,6 +13,7 @@ var sorted = oldScores.sort(function(scoreA, scoreB) {
 });
 
 function showGameStats() {
+    $('#game-info').css({ 'visibility': 'visible' });
     $('#level').html("<strong>Level: </strong>" +  level +
                      " <span id='score'>Score: " + gameScore +
                      "</span><span id='high-score'> High Score: " + highScore() + "</span>");
@@ -51,9 +52,8 @@ function addScore() {
 
 // Fill in the High Scores table
 $('#scores-table tr:not(:first-child)').each(function(index) {
-	var score = sorted[index];
-	var level = Math.floor(score / 10) + 1;
-	$(this).find('td:eq(1)').html(score || '');
-	$(this).find('td:eq(2)').html(level || '');
-    //$(this).html(sorted[index] || '');
+    var score = sorted[index];
+    var level = Math.floor(score / 10) + 1;
+    $(this).find('td:eq(1)').html(score || '');
+    $(this).find('td:eq(2)').html(level || '');
 });

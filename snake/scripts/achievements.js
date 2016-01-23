@@ -4,15 +4,15 @@ $('#my-header').load('header.html');
 
 var levelAchievements = [];
 var scoreAchievements = [];
-var gamesPlayed = Number(localStorage['mathGamesPlayed']);
+var gamesPlayed = Number(localStorage['snakeGamesPlayed']);
 var totalScore = Number(localStorage['snakeTotalScore']);
-
 var oldAchievements = JSON.parse(localStorage['snakeAchievements']);
+var achievementMessage = 'You have unlocked the achievement ';
 
 function countLevelAchievements(achievements) {
-	return achievements.filter(function(achievement) {
-		return achievement.match(/level/i);
-	}).length;
+    return achievements.filter(function(achievement) {
+        return achievement.match(/level/i);
+    }).length;
 }
 
 var allScoreAchievements = [{ 'name': 'Score 100', 'value': 100 },
@@ -39,7 +39,7 @@ function addScoreAchievements() {
         if (scoreAchievements.indexOf(achievement.name) == -1 && oldAchievements.indexOf(achievement.name) == -1) {
             if (totalScore > achievement.value) {
                 scoreAchievements.push(achievement.name);
-                $('#notification').html('You have unlocked the achievement ' + 'Score ' + achievement.value);
+                $('#notification').html(achievementMessage + 'Score ' + achievement.value);
                 showAchievement();
             }
         }
@@ -51,8 +51,8 @@ function addLevelAchievements() {
 
     if (levelAchievements.indexOf(achievement) == -1 && oldAchievements.indexOf(achievement) == -1) {
         if (level < 7) {
-			levelAchievements.push(achievement);
-            $('#notification').html('You have unlocked the achievement ' + achievement);
+            levelAchievements.push(achievement);
+            $('#notification').html(achievementMessage + achievement);
             showAchievement();
         }
     }
