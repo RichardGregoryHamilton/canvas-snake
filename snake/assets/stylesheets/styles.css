@@ -57,7 +57,6 @@ canvas {
 /* Game Information */
 
 #game-info {
-  visibility: hidden;             /* This prevents the flashing effect */
   width: 34%;
   background: mediumorchid;
   padding: 0.5% 3%;
@@ -66,6 +65,7 @@ canvas {
 
 #level {
   white-space: nowrap;            /* Align the level, score and high score */
+  font-weight: bold;
 }
 
 #score, #high-score, #coins {
@@ -81,12 +81,9 @@ canvas {
 
 /* Achievements */
 
-#achievement-header {
-  color: gold;
-}
+#achievement-header { color: gold; }
 
 #notification {
-  visibility: hidden;             /* This prevents the flashing effect */
   min-height: 40px;
   background: gold;
   font-weight: bold;

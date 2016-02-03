@@ -15,12 +15,12 @@
     </div>
     <nav class='collapse navbar-collapse bs-navbar-collapse' role='navigation'>
       <ul class='nav navbar-nav'>
-        <li><a href='help.html'>Help</a></li>
-        <li><a href='achievements.html'>Achievements</a></li>
-        <li><a href='scores.html'>Scores</a></li>
-        <li><a href='shop.html'>Shop</a></li>
-        <li><a href='faq.html'>FAQs</a></li>
-        <li><a href='related.html'>More Games</a></li>
+        <li><a ng-href="{{ page == home ? 'views/help.html' : 'help.html' }}">Help</a></li>
+        <li><a ng-href="{{ page == home ? 'views/achievements.html' : 'achievements.html' }}">Achievements</a></li>
+        <li><a ng-href="{{ page == home ? 'views/scores.html': 'scores.html' }}">Scores</a></li>
+        <li><a ng-href="{{ page == home ? 'views/shop.html' : 'shop.html' }}">Shop</a></li>
+        <li><a ng-href="{{ page == home ? 'views/faq.html' : 'faq.html' }}">FAQs</a></li>
+        <li><a ng-href="{{ page == home ? 'views/related.html' : 'related.html' }}">More Games</a></li>
       </ul>
       <span id='coins-display'>COINS <span class='coins-badge'></span></span>
     </nav>

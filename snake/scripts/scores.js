@@ -1,7 +1,5 @@
 /* This JavaScript file is for dealing with scores */
 
-$('#my-header').load('header.html');
-
 setTimeout(function() {
     $('#coins-display .coins-badge').html(localStorage['snakeCoins']);
 }, 100);
@@ -11,10 +9,6 @@ var gameScore = 0;
 var level = 1;
 
 var oldScores = JSON.parse(localStorage['snakeScores']);
-
-var sorted = oldScores.sort(function(scoreA, scoreB) {
-    return scoreB - scoreA;
-});
 
 function showGameStats() {
     var currentCoins = Number(localStorage['snakeCoins']);
@@ -26,14 +20,13 @@ function showGameStats() {
 }
 
 function highScore() {
-    var prevHigh = Math.max.apply(Math, oldScores);
-    return Math.max(prevHigh, 0, gameScore);
+	return Math.max(Math.max.apply(Math, oldScores), 0, gameScore);
 }
 
 function incrementScore() {
     if (!gameOver) {
         if (apple['x'] == snake[0].x && apple['y'] == snake[0].y) {
-            gameScore ++;
+            gameScore++;
             incrementLevel();
             generateApples();
             drawApple(apple['x'],apple['y']);
@@ -45,7 +38,7 @@ function incrementScore() {
 }
 
 function addScore() {
-    if (scores.indexOf(gameScore) == -1) {
+    if (scores.indexOf(gameScore) < 0) {
         scores.push(gameScore);
     }
     addCoins();
@@ -56,11 +49,3 @@ function addScore() {
     var newTotal = Number(localStorage['snakeTotalScore']) + gameScore;
     localStorage['snakeTotalScore'] = newTotal;
 }
-
-// Fill in the High Scores table
-$('#scores-table tr:not(:first-child)').each(function(index) {
-    var score = sorted[index];
-    var level = Math.floor(score / 10) + 1;
-    $(this).find('td:eq(1)').html(score || '');
-    $(this).find('td:eq(2)').html(level || '');
-});
