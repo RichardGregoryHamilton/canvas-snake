@@ -1,0 +1,56 @@
+<html ng-app='my-app'>
+
+  <head>
+    <title>Snake Shop</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'></link>
+    <link rel='stylesheet' href='assets/stylesheets/styles.css'></link>
+  </head>
+
+  <body>
+
+    <ng-include src="'header.html'"></ng-include>
+    
+    <div ng-controller='shopController'>
+      <h1 class='text-center'>Snake Shop</h1>
+      
+      <div id='purchase-notification' ng-hide='!showMessage' ng-class="rejected ? 'rejected': 'accepted'">
+        <span ng-if="rejected">You don't have enough coins to make this purchase</span>
+        <span ng-if="!rejected">Your purchase has been confirmed</span>
+      </div>
+      
+      <table id='shop-table'>
+        
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Preview</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        
+         <tbody>
+          <tr ng-repeat='pattern in patterns'>
+            <td class='item'>{{ pattern.name }}</td>
+            <td>Image Placeholder</td>
+            <td>
+              <span ng-if="purchased(pattern.name)" ng-click='purchaseItem($event)' class='coins-badge'>{{ pattern.price }}</span>
+              <span ng-if="!purchased(pattern.name)">Purchased</span>
+            </td>
+          </tr>
+        </tbody>
+        
+      </table>
+    </div>
+    
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js'></script>
+    <script src='scripts/app.js'></script>
+    <script src='scripts/controllers/navController.js'></script>
+    <script src='scripts/controllers/shopController.js'></script>
+    <script src='scripts/snake.js'></script>
+
+    
+  </body>
+</html>

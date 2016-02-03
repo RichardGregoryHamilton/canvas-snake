@@ -1,34 +1,39 @@
-<head>
-  <title>Frequently Asked Questions</title>
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'></link>
-  <link rel='stylesheet' href='styles.css'></link>
-</head>
+<html ng-app='my-app'>
 
-<body>
-  <header id='my-header'>
+  <head>
+    <title>Frequently Asked Questions</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'></link>
+    <link rel='stylesheet' href='assets/stylesheets/styles.css'></link>
+  </head>
 
-  </header>
+  <body>
 
-  <h1 class='text-center'>Frequently Asked Questions</h1>
+    <ng-include src="'header.html'"></ng-include>
 
-  <div class='questions-block'>
-    <h3>Question 1: What is this game?</h3>
-    <p>Answer: This is a snake game.</p>
+    <h1 class='text-center'>Frequently Asked Questions</h1>
 
-    <h3>Question 2: How do you score points?</h3>
-    <p>Answer: You score points by eating red apples that appear on the game board. This
-  will cause your snake to grow.</p>
+    <div id='questions-block'>
+      <h3>Question 1: What is this game?</h3>
+      <p>Answer: This is a snake game. You control a snake and maneuver around the game board, searching for apples.</p>
 
-    <h3>Question 3: Do you have to create an account?</h3>
-    <p>Answer: No. Best of all, this game can be played without signing up.</p>
+      <h3>Question 2: How do you earn coins?</h3>
+      <p>Answer: Coins are a reward for your hard work. You earn a certain number of coins after every game. For every five apples
+      the snake eats, you gain 1 coin. You can use these coins to purchase items in the shop.</p>
 
-    <h3>Question 4: Do you have to pay to play this game?</h3>
-    <p>Answer: Unlike most games, this one is completely free.</p>
-  </div>
+      <h3>Question 3: Do you have to create an account?</h3>
+      <p>Answer: No. Best of all, this game can be played without signing up.</p>
 
-  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
-  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
-  <script src='scripts/snake.js'></script>
+      <h3>Question 4: Do you have to pay to play this game?</h3>
+      <p>Answer: This game can be played for free. However, you can purchase coins and items from the store.</p>
+    </div>
 
-</body>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js'></script>
+    <script src='scripts/app.js'></script>
+    <script src='scripts/controllers/navController.js'></script>
+
+  </body>
+  
+</html>

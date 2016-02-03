@@ -2,6 +2,10 @@
 
 $('#my-header').load('header.html');
 
+setTimeout(function() {
+    $('#coins-display .coins-badge').html(localStorage['snakeCoins']);
+}, 100);
+
 var levelAchievements = [];
 var scoreAchievements = [];
 var gamesPlayed = Number(localStorage['snakeGamesPlayed']);

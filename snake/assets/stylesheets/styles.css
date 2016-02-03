@@ -31,6 +31,13 @@ canvas {
 
 /* Navigation */
 
+#coins-display {
+  position: fixed;
+  top: 2%;
+  margin-left: 30%;
+  color: white;
+}
+
 #snake { color: magenta; }
 #game { color: chartreuse; }
 
@@ -61,16 +68,23 @@ canvas {
   white-space: nowrap;            /* Align the level, score and high score */
 }
 
-#score, #high-score {
+#score, #high-score, #coins {
   margin-left: 10%;
   font-weight: bold;
+}
+
+.coins-badge {
+  padding: 2px 5px;
+  background: gold;
+  border-radius: 50%;
 }
 
 /* Achievements */
 
 #achievement-header {
-    color: gold;
+  color: gold;
 }
+
 #notification {
   visibility: hidden;             /* This prevents the flashing effect */
   min-height: 40px;
@@ -111,7 +125,7 @@ canvas {
 
 /* Gets the last 2 rows of the scores table */
 #scores-table tr:nth-last-child(2), #scores-table tr:last-child {
-    background: green;
+  background: green;
 }
 
 /* Help */
@@ -125,8 +139,58 @@ canvas {
 
 /* Frequently Asked Questions */
 
-.questions-block {
+#questions-block {
   margin: 3% 20%;
-  background: olive;
+  background: burlywood;
   padding: 2% 5%;
+  border: 3px solid purple;
 }
+
+/* Shop */
+
+#purchase-notification {
+  min-height: 40px;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px 4px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.rejected { background: red; }
+.accepted { background: darkgreen; }
+
+#shop-table {
+  margin: 0 auto 4% auto;
+}
+
+#shop-table th{
+  text-indent: 2%;
+  padding: 2% 0;
+  background: orange;
+}
+
+#shop-table tbody tr {
+  background: antiquewhite;
+}
+
+/* Related */
+
+#games-block {
+  background: azure;
+  width: 60%;
+  margin: 2% auto;
+}
+
+.game-section {
+  width: 100%;
+  margin: 0 auto;
+  padding: 2% 10%;
+}
+
+#fun { color: red; }
+#math { color: darkorange; }
+#game { color: gold; }
+#shapes { color: chocolate; }
+#header-game { color: maroon; }

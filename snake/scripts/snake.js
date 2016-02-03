@@ -1,5 +1,9 @@
 $('#my-header').load('header.html');
 
+setTimeout(function() {
+    $('#coins-display .coins-badge').html(localStorage['snakeCoins']);
+}, 100);
+
 var canvas = $('#my-canvas')[0];
 var ctx = canvas.getContext('2d');
 
@@ -27,6 +31,7 @@ function checkStorage(key) {
 
 checkStorage('snakeAchievements');
 checkStorage('snakeScores');
+checkStorage('snakePurchases');
 
 if (!localStorage['snakeGamesPlayed']) {
     localStorage['snakeGamesPlayed'] = 0;
@@ -34,6 +39,10 @@ if (!localStorage['snakeGamesPlayed']) {
 
 if (!localStorage['snakeTotalScore']) {
     localStorage['snakeTotalScore'] = 0;
+}
+
+if (!localStorage['snakeCoins']) {
+    localStorage['snakeCoins'] = 0;
 }
 
 $('#game-info, #notification').css({ 'visibility': 'hidden' });
@@ -119,6 +128,13 @@ function incrementLevel() {
     addAchievement(level);
 }
 
+function addCoins() {
+    var currentCoins = Number(localStorage['snakeCoins']);
+    var coinsEarned = Math.floor(gameScore / 5);
+    localStorage['snakeCoins'] = currentCoins > 0 ? currentCoins + coinsEarned: coinsEarned;
+    $('#coins-display .coins-badge').html(localStorage['snakeCoins']);
+}
+
 function reload() {
     document.location.reload();
 }
@@ -144,6 +160,7 @@ function checkLoss() {
         clearInterval(increaseScore);
         clearInterval(drawSnake);
         addScore();
+        //addCoins();
         setTimeout(reload, 500);
     }
 }

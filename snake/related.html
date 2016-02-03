@@ -1,0 +1,66 @@
+<html ng-app='my-app'>
+  
+  <head>
+    <title>Related Games</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'></link>
+    <link rel='stylesheet' href='assets/stylesheets/styles.css'></link>
+  </head>
+
+  <body>
+
+    <ng-include src="'header.html'"></ng-include>
+    
+    <h1 class='text-center'>More Games by the developer</h1>
+    
+    <div id='games-block'>
+      
+      <section class='game-section'>
+        
+        <h3>
+          <span id='fun'>Fun</span>
+          <span id='math'>Math</span>
+          <span id='game'>Game</span>
+        </h3>
+        
+        <p>
+          <strong>Description: </strong>
+          An arcade style math game where the objective is to evaluate expressions
+        </p>
+        
+        <p>
+          <strong>Link: </strong>
+          <a href='https://funmathgame.firebaseapp.com'>Fun Math Game</a>
+        </p>
+        
+      </section>
+      
+      <section class='game-section'>
+        
+        <h3>
+          <span id='shapes'>Shapes</span>
+          <span id='header-game'>Game</span>
+        </h3>
+        
+        <p>
+          <strong>Description: </strong>
+          This is an arcade game where you determine the shape that appears on the board
+        </p>
+        
+        <p>
+          <strong>Link: </strong>
+          <a href='https://shapes-game.firebaseapp.com'>Shapes Game</a>
+        </p>
+        
+      </section>
+      
+    </div>
+    
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js'></script>
+    <script src='scripts/app.js'></script>
+    <script src='scripts/controllers/navController.js'></script>
+    
+  </body>
+  
+</html>

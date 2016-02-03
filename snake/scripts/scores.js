@@ -2,6 +2,10 @@
 
 $('#my-header').load('header.html');
 
+setTimeout(function() {
+    $('#coins-display .coins-badge').html(localStorage['snakeCoins']);
+}, 100);
+
 var scores = [];
 var gameScore = 0;
 var level = 1;
@@ -13,10 +17,12 @@ var sorted = oldScores.sort(function(scoreA, scoreB) {
 });
 
 function showGameStats() {
+    var currentCoins = Number(localStorage['snakeCoins']);
     $('#game-info').css({ 'visibility': 'visible' });
     $('#level').html("<strong>Level: </strong>" +  level +
                      " <span id='score'>Score: " + gameScore +
-                     "</span><span id='high-score'> High Score: " + highScore() + "</span>");
+                     "</span><span id='high-score'> High Score: " + highScore() + "</span>") +
+                     "<span id='coins'>Coins: " + "<span class='coins-badge'>" + currentCoins + "</span></span>";
 }
 
 function highScore() {
@@ -42,6 +48,7 @@ function addScore() {
     if (scores.indexOf(gameScore) == -1) {
         scores.push(gameScore);
     }
+    addCoins();
 
     var newScores = oldScores.concat(scores);
     newScores = makeUnique(newScores);
