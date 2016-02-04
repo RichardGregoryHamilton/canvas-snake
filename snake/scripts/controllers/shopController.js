@@ -2,14 +2,14 @@
 
 angular.module('my-app')
     .controller('shopController', ['$scope', function($scope) {
-        $scope.purchases = JSON.parse(localStorage['shapePurchases']);
+        $scope.purchases = JSON.parse(localStorage['snakePurchases']);
         $scope.showMessage = false;
         $scope.rejected = false;
         $scope.purchased = function(item) {
-            return $scope.purchases.indexOf(item) == -1;
+            return $scope.purchases.indexOf(item) < 0;
         }
         
-        $scope.cart = [];
+        var cart = [];
         $scope.patterns = [
                             { 'name': 'Pattern 1', 'price': 10 },
                             { 'name': 'Pattern 2', 'price': 10 },
@@ -38,23 +38,23 @@ angular.module('my-app')
         }
         
         $scope.purchaseItem = function(event) {
-            var coins = Number(localStorage['shapesCoins']);
+            var coins = Number(localStorage['snakeCoins']);
             var price = Number(angular.element(event.target).text());
             var item = angular.element(event.target).parent().parent().find('.item').html();
 
             if (coins > price) {
                 angular.element(event.target).parent().html('Purchased');
-                localStorage['shapesCoins'] = coins - price;
-                $('#my-header .coins-badge').html(coins - price);
+                localStorage['snakeCoins'] = coins - price;
+                $('nav .coins-badge').html(coins - price);
                 $scope.approvePurchase();
                 if ($scope.purchases.length) {
-                    $scope.cart.push(item);
-                    localStorage['shapePurchases'] = JSON.stringify($scope.purchases.concat($scope.cart));
+                    cart.push(item);
+                    localStorage['snakePurchases'] = JSON.stringify($scope.purchases.concat(cart));
                 }
                 else {
-                    if ($scope.cart.indexOf(item) == -1) {
-                        $scope.cart.push(item);
-                        localStorage['shapePurchases'] = JSON.stringify($scope.cart);
+                    if (cart.indexOf(item) < 0) {
+                        cart.push(item);
+                        localStorage['snakePurchases'] = JSON.stringify(cart);
                     }
                 }
             }

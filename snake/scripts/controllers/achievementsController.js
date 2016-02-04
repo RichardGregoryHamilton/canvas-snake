@@ -1,12 +1,11 @@
 angular.module('my-app')
     .controller('achievementsController', ['$scope', 'Game', function($scope, Game) {
-        
-		$scope.unlocked = false;
-        
+
+        $scope.unlocked = false;
         $scope.achievementMessage = 'You have unlocked the achievement ';
         $scope.allScoreAchievements = [];
-		
-		[100, 200, 500, 1000].forEach(function(number, index) {
+        
+        [100, 200, 500, 1000].forEach(function(number, index) {
             $scope.allScoreAchievements[index] = { 'name': 'Score ' + number, 'value': number };
         });
 
@@ -17,9 +16,9 @@ angular.module('my-app')
         }
 
         $scope.showNotification = function() {
-            $scope.unlocked = true;
+            $('#notification').css({ 'visibility': 'visible' });
             setTimeout(function() {
-                $scope.unlocked = false;
+                $('#notification').css({ 'visibility': 'hidden' });
             }, 5000);
         }
         
@@ -47,28 +46,22 @@ angular.module('my-app')
              newAchievements = $scope.makeUnique(JSON.parse(localStorage['snakeAchievements']));
             localStorage['snakeAchievements'] = JSON.stringify(achievements.length ? newAchievements: [achievement]);
         }
+
+        setInterval(function() {
+            $scope.addAchievement(Game.level);
+        }, 1000);
         
-        $scope.levels = [1, 11, 21, 31, 41, 51, 61];
-        
-        $scope.$watch(function() {
-            return Game.score;
-            }, function(newVal, oldVal) {
-            if ($scope.levels.indexOf(newVal) > -1) {
-                $scope.addAchievement(Game.level);
-            }
-        });
-		
         $scope.hasAchievement = function(achievement) {
-            return localStorage['shapeAchievements'].indexOf(achievement) != -1;
+            return localStorage['snakeAchievements'].indexOf(achievement) != -1;
         }
         
         $scope.levelAchievements = [
-                                     { 'name': 'Level 1',  'value': 0,   'src': 'score100.png',  'alt': 'Level 1'  },
-                                     { 'name': 'Level 2',  'value': 10,  'src': 'score200.png',  'alt': 'Level 2'  },
-                                     { 'name': 'Level 3',  'value': 20,  'src': 'score500.jpg',  'alt': 'Level 3'  },
-                                     { 'name': 'Level 4',  'value': 30,  'src': 'score1000.jpe', 'alt': 'Level 4' },
-                                     { 'name': 'Level 5',  'value': 40,  'src': 'score100.png',  'alt': 'Level 5'  },
-                                     { 'name': 'Level 6',  'value': 50,  'src': 'score200.png',  'alt': 'Level 6'  }
+                                     { 'name': 'Level 1',  'value': 0,   'src': 'number1.jpe',  'alt': 'Level 1'  },
+                                     { 'name': 'Level 2',  'value': 10,  'src': 'number2.png',  'alt': 'Level 2'  },
+                                     { 'name': 'Level 3',  'value': 20,  'src': 'number3.jpg',  'alt': 'Level 3'  },
+                                     { 'name': 'Level 4',  'value': 30,  'src': 'number4.jpe',  'alt': 'Level 4' },
+                                     { 'name': 'Level 5',  'value': 40,  'src': 'number5.jpg',  'alt': 'Level 5'  },
+                                     { 'name': 'Level 6',  'value': 50,  'src': 'number6.jpg',  'alt': 'Level 6'  }
                                    ];
                                    
         $scope.scoreAchievements = [

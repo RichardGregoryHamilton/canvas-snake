@@ -4,30 +4,12 @@ angular.module('my-app')
         $scope.score = Game.score;
         $scope.level = Game.level;
         $scope.playing = false;
-        //$scope.coins = localStorage['snakeCoins'];
+        $scope.coins = localStorage['snakeCoins'];
         
-        $scope.$watch(function() {
-            return Game.playing;
-            }, function(newVal, oldVal) {
-            $scope.playing = newVal;
-        }, true);
-        
-        $scope.$watch(function() {
-            return Game.score;
-            }, function(newScore, oldScore) {
-            if (newScore > oldScore) {
-                console.log(newScore);
-                $scope.score = newScore;
-            }
-        });
-        
-        $scope.$watch(function() {
-            return Game.level;
-            }, function(newLevel, oldLevel) {
-            if (newLevel > oldLevel) {
-                $scope.level = newLevel;
-            }
-        });
+        setInterval(function() {
+            $('#score').html('Score: ' + Game.score);
+            $('#level').html('Level: ' + Game.level);
+        }, 100);
         
         var oldScores = JSON.parse(localStorage['snakeScores'] || '[]');
 
@@ -36,7 +18,7 @@ angular.module('my-app')
         });
         
         $scope.highScore = function() {
-            return Math.max(Math.max.apply(Math, oldScores), 0, $scope.score);
+            return Math.max(Math.max.apply(Math, oldScores), 0, Game.score);
         }
 
         $scope.scoreData = [

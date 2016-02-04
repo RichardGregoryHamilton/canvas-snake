@@ -5,7 +5,7 @@ body {
 }
 
 h1 {
-  margin-top: 2%;
+  margin-top: 5%;
   text-align: center;
 }
 
@@ -33,7 +33,7 @@ canvas {
 
 #coins-display {
   position: fixed;
-  top: 2%;
+  top: 15px;
   margin-left: 30%;
   color: white;
 }
@@ -63,8 +63,11 @@ canvas {
   margin: 0 auto 0.5% auto;
 }
 
+#game-stats {
+  white-space: nowrap;
+}
+
 #level {
-  white-space: nowrap;            /* Align the level, score and high score */
   font-weight: bold;
 }
 
@@ -92,6 +95,7 @@ canvas {
   padding: 10px 4px;
   width: 34%;
   margin: 0 auto;
+  visibility: hidden;
 }
 
 .achievement-img {
@@ -145,6 +149,9 @@ canvas {
 
 /* Shop */
 
+#shop-left { color: deeppink; }
+#shop-right { color: cyan; }
+
 #purchase-notification {
   min-height: 40px;
   font-weight: bold;
@@ -156,7 +163,8 @@ canvas {
 }
 
 .rejected { background: red; }
-.accepted { background: darkgreen; }
+.rejected:hover { background: crimson; }
+.accepted { background: forestgreen; }
 
 #shop-table {
   margin: 0 auto 4% auto;
@@ -170,6 +178,14 @@ canvas {
 
 #shop-table tbody tr {
   background: antiquewhite;
+}
+
+#shop-table tbody tr:hover {
+    background: burlywood;
+}
+
+#shop-table .coins-badge:hover {
+    cursor: pointer;
 }
 
 /* Related */

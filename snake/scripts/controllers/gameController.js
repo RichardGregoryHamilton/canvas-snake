@@ -16,10 +16,6 @@ angular.module('my-app')
         var playing = false;
         
         var scores = [];
-        //var score = 0;
-        //var level = 1;
-
-        //$('#notification').css({ 'visibility': 'hidden' });
 
         $('body').on('keydown', function(event) {
             if (playing) {
@@ -94,7 +90,6 @@ angular.module('my-app')
 
         $scope.incrementLevel = function() {
             Game.level = Math.ceil(Game.score / 10);
-            //$scope.addAchievement(Game.level);
         }
 
         $scope.addCoins = function() {
@@ -129,7 +124,7 @@ angular.module('my-app')
                 clearInterval($scope.increaseScore);
                 clearInterval($scope.drawSnake);
                 $scope.addScore();
-                //addCoins();
+                $scope.addCoins();
                 setTimeout($scope.reload, 500);
             }
         }
@@ -164,7 +159,6 @@ angular.module('my-app')
             if (!playing) {
                 if (apple['x'] == snake[0].x && apple['y'] == snake[0].y) {
                     Game.score++;
-                    console.log(Game.score);
                     $scope.incrementLevel();
                     $scope.generateApples();
                     $scope.drawApple(apple['x'], apple['y']);
@@ -175,6 +169,12 @@ angular.module('my-app')
         }
 
         var oldScores = JSON.parse(localStorage['snakeScores'] || '[]');
+        
+        $scope.makeUnique = function(array) {
+            return array.filter(function(element, index) {
+                return array.indexOf(element) == index;
+            });
+        }
         
         $scope.addScore = function() {
             if (scores.indexOf(Game.score) < 0) {

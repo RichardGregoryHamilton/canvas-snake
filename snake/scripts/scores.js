@@ -20,7 +20,7 @@ function showGameStats() {
 }
 
 function highScore() {
-	return Math.max(Math.max.apply(Math, oldScores), 0, gameScore);
+    return Math.max(Math.max.apply(Math, oldScores), 0, gameScore);
 }
 
 function incrementScore() {

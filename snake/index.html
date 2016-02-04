@@ -15,13 +15,14 @@
 			<span id='game'>Online</span>
 		</h1>
 
-		<div class='achievementsController'>
-			<div id='notification' ng-hide='!unlocked'></div>
+		<div ng-controller='achievementsController'>
+			<div id='notification'></div>
 		</div>
 
 		<div ng-controller='scoresController'>
-			<div id='game-info' ng-hide='!playing'>
-				<p id='level'>Level: {{ level }}
+			<div id='game-info' >
+				<p id='game-stats'>
+					<span id='level'>Level: {{ level }}</span>
 					<span id='score'>Score: {{ score }}</span>
 					<span id='high-score'>High Score: {{ highScore() }}</span>
 					<span id='coins'>Coins: <span class='coins-badge'> {{ coins }} </span></span>

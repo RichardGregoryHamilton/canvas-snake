@@ -11,7 +11,10 @@
     <ng-include src="'../header.html'"></ng-include>
     
     <div ng-controller='shopController'>
-      <h1 class='text-center'>Snake Shop</h1>
+      <h1 class='text-center'>
+        <span id='shop-left'>Snake</span>
+        <span id='shop-right'>Shop</span>
+      </h1>
       
       <div id='purchase-notification' ng-hide='!showMessage' ng-class="rejected ? 'rejected': 'accepted'">
         <span ng-if="rejected">You don't have enough coins to make this purchase</span>
