@@ -93,10 +93,10 @@ angular.module('my-app')
         }
 
         $scope.addCoins = function() {
-            var currentCoins = Number(localStorage['snakeCoins']);
+            var currentCoins = Number(localStorage['coins']);
             var coinsEarned = Math.floor(Game.score / 5);
-            localStorage['snakeCoins'] = currentCoins > 0 ? currentCoins + coinsEarned: coinsEarned;
-            $('#coins-display .coins-badge').html(localStorage['snakeCoins']);
+            localStorage['coins'] = currentCoins > 0 ? currentCoins + coinsEarned: coinsEarned;
+            $('#coins-display .coins-badge').html(localStorage['coins']);
         }
 
         $scope.reload = function() {
@@ -149,7 +149,7 @@ angular.module('my-app')
 
         // Call this function to start a new game
         $scope.play = function() {
-            localStorage['snakeGamesPlayed'] = ++localStorage['snakeGamesPlayed'];
+            localStorage['gamesPlayed'] = ++localStorage['gamesPlayed'];
             $scope.generateApples();
             $scope.drawSnake = setInterval($scope.draw, 60);
             $scope.increaseScore = setInterval($scope.incrementScore, 60);
@@ -168,7 +168,7 @@ angular.module('my-app')
             }
         }
 
-        var oldScores = JSON.parse(localStorage['snakeScores'] || '[]');
+        var oldScores = JSON.parse(localStorage['scores'] || '[]');
         
         $scope.makeUnique = function(array) {
             return array.filter(function(element, index) {
@@ -184,9 +184,9 @@ angular.module('my-app')
 
             var newScores = oldScores.concat(scores);
            // newScores = $scope.makeUnique(newScores);
-            localStorage['snakeScores'] = JSON.stringify(newScores);
-            var newTotal = Number(localStorage['snakeTotalScore']) + Game.score;
-            localStorage['snakeTotalScore'] = newTotal;
+            localStorage['scores'] = JSON.stringify(newScores);
+            var newTotal = Number(localStorage['totalScore']) + Game.score;
+            localStorage['totalScore'] = newTotal;
         }
         
     }]);

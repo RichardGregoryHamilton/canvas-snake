@@ -4,14 +4,14 @@ angular.module('my-app')
         $scope.score = Game.score;
         $scope.level = Game.level;
         $scope.playing = false;
-        $scope.coins = localStorage['snakeCoins'];
+        $scope.coins = localStorage['coins'];
         
         setInterval(function() {
             $('#score').html('Score: ' + Game.score);
             $('#level').html('Level: ' + Game.level);
         }, 100);
         
-        var oldScores = JSON.parse(localStorage['snakeScores'] || '[]');
+        var oldScores = JSON.parse(localStorage['scores'] || '[]');
 
         var sorted = oldScores.sort(function(scoreA, scoreB) {
             return scoreB - scoreA;

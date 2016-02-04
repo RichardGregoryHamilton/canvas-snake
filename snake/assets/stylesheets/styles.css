@@ -10,7 +10,7 @@ h1 {
 }
 
 table {
-  width: 70%;
+  width: 65%;
   margin: 5% auto;
 }
 
@@ -19,7 +19,7 @@ tr {
 }
 
 td {
-  padding: 20px 15px;
+  padding: 15px;
 }
 
 canvas {
@@ -86,6 +86,20 @@ canvas {
 
 #achievement-header { color: gold; }
 
+#achievements-summary {
+  background: silver;
+  width: 65%;
+  margin: 2% auto 0 auto;
+  padding: 5px;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+#achievements-table {
+  margin-top: 0;
+}
+
 #notification {
   min-height: 40px;
   background: gold;
@@ -99,8 +113,8 @@ canvas {
 }
 
 .achievement-img {
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
 }
 

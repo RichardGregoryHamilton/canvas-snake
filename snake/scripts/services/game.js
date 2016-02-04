@@ -4,6 +4,6 @@ angular.module('my-app')
             level: 1,
             score: 0,
             playing: false,
-            coins: localStorage['snakeCoins']
+            coins: localStorage['coins']
         };
     });

@@ -2,7 +2,7 @@
 
 angular.module('my-app')
     .controller('shopController', ['$scope', function($scope) {
-        $scope.purchases = JSON.parse(localStorage['snakePurchases']);
+        $scope.purchases = JSON.parse(localStorage['purchases']);
         $scope.showMessage = false;
         $scope.rejected = false;
         $scope.purchased = function(item) {
@@ -38,23 +38,23 @@ angular.module('my-app')
         }
         
         $scope.purchaseItem = function(event) {
-            var coins = Number(localStorage['snakeCoins']);
+            var coins = Number(localStorage['coins']);
             var price = Number(angular.element(event.target).text());
             var item = angular.element(event.target).parent().parent().find('.item').html();
 
             if (coins > price) {
                 angular.element(event.target).parent().html('Purchased');
-                localStorage['snakeCoins'] = coins - price;
+                localStorage['coins'] = coins - price;
                 $('nav .coins-badge').html(coins - price);
                 $scope.approvePurchase();
                 if ($scope.purchases.length) {
                     cart.push(item);
-                    localStorage['snakePurchases'] = JSON.stringify($scope.purchases.concat(cart));
+                    localStorage['purchases'] = JSON.stringify($scope.purchases.concat(cart));
                 }
                 else {
                     if (cart.indexOf(item) < 0) {
                         cart.push(item);
-                        localStorage['snakePurchases'] = JSON.stringify(cart);
+                        localStorage['purchases'] = JSON.stringify(cart);
                     }
                 }
             }

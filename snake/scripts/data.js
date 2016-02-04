@@ -4,18 +4,18 @@ function checkStorage(key) {
     }
 }
 
-checkStorage('snakeAchievements');
-checkStorage('snakeScores');
-checkStorage('snakePurchases');
+checkStorage('achievements');
+checkStorage('scores');
+checkStorage('purchases');
 
-if (!localStorage['snakeGamesPlayed']) {
-    localStorage['snakeGamesPlayed'] = 0;
+if (!localStorage['gamesPlayed']) {
+    localStorage['gamesPlayed'] = 0;
 }
 
-if (!localStorage['snakeTotalScore']) {
-    localStorage['snakeTotalScore'] = 0;
+if (!localStorage['totalScore']) {
+    localStorage['totalScore'] = 0;
 }
 
-if (!localStorage['snakeCoins']) {
-    localStorage['snakeCoins'] = 0;
+if (!localStorage['coins']) {
+    localStorage['coins'] = 0;
 }

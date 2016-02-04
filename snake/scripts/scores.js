@@ -1,17 +1,17 @@
 /* This JavaScript file is for dealing with scores */
 
 setTimeout(function() {
-    $('#coins-display .coins-badge').html(localStorage['snakeCoins']);
+    $('#coins-display .coins-badge').html(localStorage['coins']);
 }, 100);
 
 var scores = [];
 var gameScore = 0;
 var level = 1;
 
-var oldScores = JSON.parse(localStorage['snakeScores']);
+var oldScores = JSON.parse(localStorage['scores']);
 
 function showGameStats() {
-    var currentCoins = Number(localStorage['snakeCoins']);
+    var currentCoins = Number(localStorage['coins']);
     $('#game-info').css({ 'visibility': 'visible' });
     $('#level').html("<strong>Level: </strong>" +  level +
                      " <span id='score'>Score: " + gameScore +
@@ -45,7 +45,7 @@ function addScore() {
 
     var newScores = oldScores.concat(scores);
     newScores = makeUnique(newScores);
-    localStorage['snakeScores'] = JSON.stringify(newScores);
-    var newTotal = Number(localStorage['snakeTotalScore']) + gameScore;
-    localStorage['snakeTotalScore'] = newTotal;
+    localStorage['scores'] = JSON.stringify(newScores);
+    var newTotal = Number(localStorage['totalScore']) + gameScore;
+    localStorage['totalScore'] = newTotal;
 }
