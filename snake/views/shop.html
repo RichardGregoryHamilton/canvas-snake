@@ -34,9 +34,15 @@
          <tbody>
           <tr ng-repeat='pattern in patterns'>
             <td class='item'>{{ pattern.name }}</td>
-            <td>Image Placeholder</td>
+            <td>
+            <svg height="50" width="100">
+                  <line x1="0" y1="25" x2="200" y2="25" style="stroke:{{pattern.color}};stroke-width:10" />
+                </svg>
+            </td>
             <td>
               <span ng-if="purchased(pattern.name)" ng-click='purchaseItem($event)' class='coins-badge'>{{ pattern.price }}</span>
+              
+            
               <span ng-if="!purchased(pattern.name)">Purchased</span>
             </td>
           </tr>

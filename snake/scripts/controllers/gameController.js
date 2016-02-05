@@ -132,8 +132,20 @@ angular.module('my-app')
         // This updates and draws the position of the snake
         $scope.updateBoard = function() {
             for (var i = 0; i < snake.length; i++) {
+                var selectedSnake = JSON.parse(localStorage['snake']);
                 var cell = snake[i];
-                ctx.fillStyle = 'blue';
+                var color = selectedSnake.color;
+
+                if (selectedSnake.type == 'gradient') {
+                    var color1 = selectedSnake.color.split(' ')[0];
+                    var color2 = selectedSnake.color.split(' ')[1];
+                    var gradient = ctx.createLinearGradient(0, 0, 400, 0);
+                    gradient.addColorStop(0, color1);
+                    gradient.addColorStop(1, color2);
+                    color = gradient;
+                }
+                
+                ctx.fillStyle = color;
                 ctx.fillRect(cell['x'] * cellWidth, cell['y'] * cellWidth, cellWidth, cellWidth);
             }
         }

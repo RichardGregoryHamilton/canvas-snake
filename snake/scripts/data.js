@@ -19,3 +19,7 @@ if (!localStorage['totalScore']) {
 if (!localStorage['coins']) {
     localStorage['coins'] = 0;
 }
+
+if (!localStorage['snake']) {
+    localStorage['snake'] = JSON.stringify({ 'color': 'blue', 'type': 'regular' });
+}
